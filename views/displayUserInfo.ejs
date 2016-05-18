@@ -1,0 +1,13 @@
+<% if(rs.length > 0) { %>
+User: <%= rs[0].username %>
+<ul>
+    <% for(var i=0; i < rs.length; i++) {%>
+    <li>
+        <%= rs[i].title %>
+        <%= rs[i].rating %>
+    </li>
+    <% } %>
+</ul>
+<% } else { %>
+No user matched user id <%= user_id %>.
+<% } %>

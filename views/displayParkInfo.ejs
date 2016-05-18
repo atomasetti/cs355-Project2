@@ -1,0 +1,34 @@
+<% if(rs.length > 0) { %>
+<h2> Coasters: </h2>
+<ul>
+    <% for(var i=0; i < rs.length; i++) {%>
+    <li>
+        <%= rs[i].CoasterName %>
+    </li>
+    <% } %>
+</ul>
+
+<h2> Location: </h2>
+<ul>
+    <% for(var i=0; i < 1; i++) {%>
+
+    <li>
+        City:<%= rs[i].City %>
+    </li>
+
+    <li>
+        State:<%= rs[i].State %>
+    </li>
+
+    <li>
+        Country:<%= rs[i].Country %>
+    </li>
+
+    <% } %>
+</ul>
+
+
+
+<% } else { %>
+No park matched park id <%= park_id %>.
+<% } %>

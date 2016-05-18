@@ -1,0 +1,18 @@
+<% js_includes = []%>
+<% include ../partials/header.ejs %>
+
+<h1>Add a New Movie</h1>
+<form method="POST" action="/user/insert_user">
+    Title <input type="text" id="username" name="username" /> <br />
+    <br />
+    Genre(s)<br />
+    <% for( var i = 0; i < state.length; i++) { %>
+    <input type="checkbox" name="state_id" id="state_id" value="<%= state[i].state_id %>"><%= state[i].name %> <br />
+    <% } %>
+
+    <br />
+
+    <button id="addBtn">Add</button>
+</form>
+
+<% include ../partials/footer.ejs %>

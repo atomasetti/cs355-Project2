@@ -1,0 +1,16 @@
+
+
+<div>
+    <% if(rs.length > 0) { %>
+    <table border="1" background=white>
+        <tr><th>Coaster Name</th>
+        <% for (var i=0; rs.length > i; i++) { %>
+        <tr>
+            <td> <%= rs[i].Name %></td>
+        </tr>
+        <% } %>
+    </table>
+    <% } else { %>
+    No coasters exist.
+    <% } %>
+</div>

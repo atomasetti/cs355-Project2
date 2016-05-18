@@ -1,0 +1,27 @@
+<div>
+    <% if(rs.length > 0) { %>
+    <table border="1">
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Actions</th>
+        </tr>
+        <% for (var i=0; rs.length > i; i++) { %>
+        <tr>
+            <td><a href="/user/?user_id=<%= rs[i].userID %>"> <%= rs[i].first %></a></td>
+            <td><a href="/user/?user_id=<%= rs[i].userID %>"> <%= rs[i].last %></a></td>
+            <td>
+            <a href="/user/delete/?user_id=<%= rs[i].userID %>&first=<%= rs[i].userID %>">Delete</a>
+            <a href="/user/edit/?user_id=<%= rs[i].userID %>">Edit</a>
+            </td>
+        </tr>
+        <% } %>
+    </table>
+    <% } else { %>
+    No movies exist.
+    <% } %>
+</div>
+
+<div style="margin-top:10px;">
+    <a href="/users/create">Create New User</a>
+</div>

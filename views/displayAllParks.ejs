@@ -1,0 +1,24 @@
+
+
+<div>
+    <% if(rs.length > 0) { %>
+    <table border="1" background=white>
+        <tr><th>Park Name</th><th>Actions</th></tr>
+        <% for (var i=0; rs.length > i; i++) { %>
+        <tr>
+            <td><a href="/park/?park_id=<%= rs[i].AmusementParkID %>"> <%= rs[i].Name %></a></td>
+            <td>
+                <a href="/park/delete/?park_id=<%= rs[i].AmusementParkID %>&Name=<%= rs[i].Name %>">Delete</a>
+                <a href="/park/edit/?park_id=<%= rs[i].AmusementParkID %>">Edit</a>
+            </td>
+        </tr>
+        <% } %>
+    </table>
+    <% } else { %>
+    No parks exist.
+    <% } %>
+</div>
+
+<div style="margin-top:10px;">
+    <a href="/park/create">Create New Park</a>
+</div>

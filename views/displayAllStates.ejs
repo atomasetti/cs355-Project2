@@ -1,0 +1,18 @@
+<div>
+    <% if(rs.length > 0) { %>
+    <table border="1">
+        <tr><th>States</th></tr>
+        <% for (var i=0; rs.length > i; i++) { %>
+        <tr>
+            <td><a href="/state/?state_id=<%= rs[i].state_id %>"> <%= rs[i].state_id %></a></td>
+        </tr>
+        <% } %>
+    </table>
+    <% } else { %>
+    No states exist.
+    <% } %>
+</div>
+
+<div style="margin-top:10px;">
+    <a href="/state/create">Create New State</a>
+</div>

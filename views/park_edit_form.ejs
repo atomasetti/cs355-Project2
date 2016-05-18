@@ -1,0 +1,26 @@
+<% include partials/header %>
+
+<% if (typeof message !== 'undefined') { %>
+<div><%= message %></div>
+<% } %>
+
+<% if(rs.length > 0) { %>
+<h2 id= Create>Edit Park</h2>
+<form id= Create method="POST" action="/park/update_park">
+    <input type="hidden" name="park_id" value="<%= rs[0].AmusementParkID %>" />
+    Park Name<input type="text" id="ParkName" name="ParkName" value="<%= rs[0].ParkName%>" />
+    <br />
+    City<input type="text" id="City" name="City" value="<%= rs[0].City%>" />
+    <br />
+    State<input type="text" id="State" name="State" value="<%= rs[0].State%>" />
+    <br />
+    Country<input type="text" id="Country" name="Country" value="<%= rs[0].Country%>" />
+    <br />
+
+    <button id="addBtn">Edit</button>
+</form>
+<% } else { %>
+No movie matches that ID.
+<% } %>
+
+<% include partials/footer %>

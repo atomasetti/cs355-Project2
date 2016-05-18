@@ -1,0 +1,49 @@
+<% include partials/header %>
+
+<% if (typeof message !== 'undefined') { %>
+<div><%= message %></div>
+<% } %>
+
+<% if(rs.length > 0) { %>
+<h1>Edit User</h1>
+<form method="POST" action="/user/update_user">
+    <input type="hidden" name="user_id" value="<%= rs[0].userID %>" />
+    Username <input type="username" id="username" name="username" value="<%= rs[0].username%>" />
+    <br />
+    First Name <input type="first" id="first" name="first" value="<%= rs[0].first%>" />
+    <br />
+    Last Name <input type="last" id="last" name="last" value="<%= rs[0].last%>" />
+    <br />
+    Email <input type="email" id="email" name="email" value="<%= rs[0].email%>" />
+    <br />
+    Password <input type="password" id="password" name="password" value="<%= rs[0].password%>" />
+    <br />
+    <br />
+
+    States(s)
+    <div style="margin-left:10px;">
+        <% for( var i = 0; i < states.length; i++) { %>
+        <input type="checkbox"
+               name="state_id"
+               id="state_id"
+
+                <%
+                for (var j=0; j < rs.length; j++) {
+                if(states[i].state_id == rs[j].state_id) { %>
+               checked
+
+                <% }
+                }
+                %>
+               value="<%= states[i].state_id %>"><%= states[i].state_name %> <br />
+        <% } %>
+    </div>
+
+
+    <button id="addBtn">Edit</button>
+</form>
+<% } else { %>
+No user matches that ID.
+<% } %>
+
+<% include partials/footer %>
